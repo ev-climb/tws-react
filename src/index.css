@@ -1,13 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaldi&family=Rock+Salt&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-family: 'Jaldi', sans-serif;
+}
+.wrapper {
+  background-image: url(/public/img/space-background.png);
+  background-size: cover;
+  width: 1353px;
+  height: 750px;
+  margin: 50px 0 50px;
+  border-radius: 40px;
+}
+.header {
+  width: 100%;
+  height: 428px;
+  background-image: url(/public/img/wave.svg);
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+.header__container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo {
+  width: 152px;
+  height: 152px;
+  margin-top: 50px;
+}
+.header__quote {
+  display: flex;
+  margin-top: 50px;
+}
+.header__marcus {
+  width: 190px;
+  height: 250px;
+  transform: rotate(-20deg);
+  opacity: 0.5;
+}
+.header__text-fone {
+  width: 500px;
+  height: 160px;
+  background-color: rgba(203, 108, 230, 0.1);
+  margin-top: 110px;
+  border-radius: 40px 0 40px 40px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+.header__quote-text {
+  margin: 0;
+  font-size: 20px;
+}
+.header__quote-autor {
+  margin: 10px 0 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+.timer {
+  width: 180px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+}
+.timer-time {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 49px;
+}
+.todo-input {
+  border: none;
+  padding: 0;
+  width: 285px;
+  height: 40px;
+  background-color: rgba(203, 108, 230, 0.17);
+  border-radius: 10px;
+  margin-top: 30px;
+  padding-left: 10px;
+  caret-color: #ffffff;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.todo-input::placeholder {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.todo-input:focus {
+  outline: none;
 }

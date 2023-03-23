@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="wrapper">
+        <header className="header">
+          <div className="header__container">
+            <img className="header__logo" src="/img/logo-tws.svg" alt="logo" />
+            <div className="header__quote">
+              <div className="header__text-fone">
+                <p className="header__quote-text">
+                  «Счастье не в великом количестве вещей, а в мере наших потребностей»
+                </p>
+                <p className="header__quote-autor">Зенон Китийский</p>
+              </div>
+              <img className="header__marcus" src="/img/marcus.png" alt="marcus" />
+            </div>
+          </div>
+        </header>
+        <div className="main">
+          <div className="todo-container">
+            <div className="timer">
+              <p className="timer-time">00:00:00</p>
+            </div>
+            <input className="todo-input" placeholder=" чем займемся?" />
+            <div className="todo-tasks">
+              <div className="todo-task">
+                <button className="remove-task" />
+                <p className="todo-text">Пройти урок по реакту</p>
+                <button className="time-play" />
+                <button className="time-stop" />
+                <button className="task-done" />
+              </div>
+              <div className="todo-task">
+                <button className="remove-task" />
+                <p className="todo-text">
+                  Написать список задачь на всю оставшуюся жизнь и провереть переполняемость блока
+                </p>
+                <button className="time-play" />
+                <button className="time-stop" />
+                <button className="task-done" />
+              </div>
+            </div>
+          </div>
+          <img className="space-cow" alt="spaceCow" />
+          <div className="music-box"></div>
+        </div>
+      </div>
     </div>
   );
 }
