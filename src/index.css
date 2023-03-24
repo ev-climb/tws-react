@@ -9,7 +9,7 @@ body {
   font-family: 'Jaldi', sans-serif;
 }
 .wrapper {
-  background-image: url(/public/img/space-background.png);
+  background-image: url(/public/img/space-backgroung-big.jpg);
   background-size: cover;
   width: 1353px;
   height: 750px;
@@ -104,4 +104,74 @@ body {
 }
 .todo-input:focus {
   outline: none;
+}
+
+.todo-tasks {
+  margin-top: 40px;
+}
+
+.todo-task {
+  width: 295px;
+  height: 40px;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+  transition: 0.5s ease-in-out;
+  overflow: auto;
+}
+.todo-task_long:hover {
+  height: 200px;
+}
+.todo-text {
+  max-height: 20px;
+  max-width: 170px;
+  margin: 5px 8px 0;
+}
+
+.remove-task {
+  background-image: url(/public/img/remove.svg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 18px;
+  height: 18px;
+  margin: 8px;
+  padding: 0;
+}
+.time-play {
+  background-image: url(/public/img/clock.svg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  margin-top: 8px;
+  padding: 0;
+}
+.time-stop {
+  background-image: url(/public/img/pause.svg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  margin-top: 8px;
+  padding: 0;
+}
+.task-done {
+  background-image: url(/public/img/done.svg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  margin-top: 8px;
+  padding: 0;
 }

@@ -26,18 +26,22 @@ function App() {
               <div className="todo-task">
                 <button className="remove-task" />
                 <p className="todo-text">Пройти урок по реакту</p>
-                <button className="time-play" />
-                <button className="time-stop" />
-                <button className="task-done" />
+                <div className="todo-buttons">
+                  <button className="time-play" />
+                  <button className="time-stop" />
+                  <button className="task-done" />
+                </div>
               </div>
-              <div className="todo-task">
+              <div className="todo-task todo-task_long">
                 <button className="remove-task" />
                 <p className="todo-text">
                   Написать список задачь на всю оставшуюся жизнь и провереть переполняемость блока
                 </p>
-                <button className="time-play" />
-                <button className="time-stop" />
-                <button className="task-done" />
+                <div className="todo-buttons">
+                  <button className="time-play" />
+                  <button className="time-stop" />
+                  <button className="task-done" />
+                </div>
               </div>
             </div>
           </div>
