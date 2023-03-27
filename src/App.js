@@ -44,6 +44,19 @@ function App() {
                 </div>
               </div>
             </div>
+            <div className="tasks-done">
+              <div className="todo-task todo-task_long todo-task_done">
+                <button className="remove-task" />
+                <p className="todo-text">
+                  Написать список задачь на всю оставшуюся жизнь и провереть переполняемость блока
+                </p>
+                <div className="todo-buttons">
+                  <button className="time-play" />
+                  <button className="time-stop" />
+                  <button className="task-done" />
+                </div>
+              </div>
+            </div>
           </div>
           <img className="space-cow" alt="spaceCow" />
           <div className="music-box"></div>

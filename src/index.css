@@ -11,8 +11,9 @@ body {
 .wrapper {
   background-image: url(/public/img/space-backgroung-big.jpg);
   background-size: cover;
+  background-attachment: fixed;
   width: 1353px;
-  height: 750px;
+  height: auto;
   margin: 50px 0 50px;
   border-radius: 40px;
 }
@@ -70,6 +71,13 @@ body {
   justify-content: space-between;
   padding: 0 5%;
 }
+.todo-container {
+  width: 375px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* таймер */
 .timer {
   width: 180px;
   height: 60px;
@@ -78,13 +86,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 50px;
 }
 .timer-time {
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 49px;
 }
+
+/* инпут */
 .todo-input {
   border: none;
   padding: 0;
@@ -97,19 +106,31 @@ body {
   caret-color: #ffffff;
   font-size: 20px;
   color: rgba(255, 255, 255, 0.7);
+  transition: 0.2s ease-in-out;
+}
+.todo-input:hover {
+  box-shadow: 0px 0px 8px rgba(203, 108, 230, 1);
 }
 .todo-input::placeholder {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.7);
+  transition: 0.5s ease-in-out;
+}
+.todo-input:hover::placeholder {
+  color: rgba(255, 255, 255, 0.4);
 }
 .todo-input:focus {
   outline: none;
 }
 
+/* tasks */
 .todo-tasks {
   margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .todo-task {
   width: 295px;
   height: 40px;
@@ -123,15 +144,27 @@ body {
   transition: 0.5s ease-in-out;
   overflow: auto;
 }
+.todo-task:hover {
+  width: 375px;
+}
+.todo-task p {
+  transition: 0.5s ease-in-out;
+}
+.todo-task:hover p {
+  max-width: 220px;
+}
 .todo-task_long:hover {
   height: 200px;
 }
 .todo-text {
-  max-height: 20px;
   max-width: 170px;
-  margin: 5px 8px 0;
+  margin: 7px 8px 0;
+}
+.tasks-done {
+  margin-top: 30px;
 }
 
+/* кнопки в task */
 .remove-task {
   background-image: url(/public/img/remove.svg);
   background-size: cover;
@@ -140,6 +173,7 @@ body {
   width: 18px;
   height: 18px;
   margin: 8px;
+  margin-top: 10px;
   padding: 0;
 }
 .time-play {
@@ -150,7 +184,7 @@ body {
   width: 18px;
   height: 18px;
   margin-right: 5px;
-  margin-top: 8px;
+  margin-top: 10px;
   padding: 0;
 }
 .time-stop {
@@ -161,7 +195,7 @@ body {
   width: 18px;
   height: 18px;
   margin-right: 5px;
-  margin-top: 8px;
+  margin-top: 10px;
   padding: 0;
 }
 .task-done {
@@ -172,6 +206,6 @@ body {
   width: 18px;
   height: 18px;
   margin-right: 5px;
-  margin-top: 8px;
+  margin-top: 10px;
   padding: 0;
 }
