@@ -146,16 +146,19 @@ body {
 }
 .todo-task:hover {
   width: 375px;
+  height: 100px;
 }
 .todo-task p {
   transition: 0.5s ease-in-out;
-}
-.todo-task:hover p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   max-width: 220px;
 }
-.todo-task_long:hover {
-  height: 200px;
+.todo-task:hover p {
+  white-space: normal;
 }
+
 .todo-text {
   max-width: 170px;
   margin: 7px 8px 0;
@@ -165,6 +168,9 @@ body {
 }
 
 /* кнопки в task */
+.todo-buttons {
+  display: flex;
+}
 .remove-task {
   background-image: url(/public/img/remove.svg);
   background-size: cover;

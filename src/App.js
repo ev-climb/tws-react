@@ -32,7 +32,7 @@ function App() {
                   <button className="task-done" />
                 </div>
               </div>
-              <div className="todo-task todo-task_long">
+              <div className="todo-task">
                 <button className="remove-task" />
                 <p className="todo-text">
                   Написать список задачь на всю оставшуюся жизнь и провереть переполняемость блока
@@ -45,7 +45,7 @@ function App() {
               </div>
             </div>
             <div className="tasks-done">
-              <div className="todo-task todo-task_long todo-task_done">
+              <div className="todo-task todo-task_done">
                 <button className="remove-task" />
                 <p className="todo-text">
                   Написать список задачь на всю оставшуюся жизнь и провереть переполняемость блока
