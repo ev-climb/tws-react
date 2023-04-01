@@ -1,3 +1,6 @@
+import React from 'react';
+import Task from './components/Task/Task';
+
 function App() {
   return (
     <div className="App">
@@ -23,26 +26,8 @@ function App() {
             </div>
             <input className="todo-input" placeholder=" чем займемся?" />
             <div className="todo-tasks">
-              <div className="todo-task">
-                <button className="remove-task" />
-                <p className="todo-text">Пройти урок по реакту</p>
-                <div className="todo-buttons">
-                  <button className="time-play" />
-                  <button className="time-stop" />
-                  <button className="task-done" />
-                </div>
-              </div>
-              <div className="todo-task">
-                <button className="remove-task" />
-                <p className="todo-text">
-                  Написать список задачь на всю оставшуюся жизнь и провереть переполняемость блока
-                </p>
-                <div className="todo-buttons">
-                  <button className="time-play" />
-                  <button className="time-stop" />
-                  <button className="task-done" />
-                </div>
-              </div>
+              <Task />
+              <Task />
             </div>
             <div className="tasks-done">
               <div className="todo-task todo-task_done">

@@ -150,12 +150,15 @@ body {
   max-height: 100px;
   transition: 0.5s ease-in-out;
 }
+.todo-task:hover p {
+  justify-self: auto;
+}
 .todo-task p {
   transition: 0.5s ease-in-out;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 220px;
-  margin: 7px 8px 0;
+  margin: 8px 8px 0;
 }
 
 .tasks-done {
