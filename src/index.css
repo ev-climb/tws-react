@@ -12,7 +12,7 @@ body {
   background-image: url(/public/img/space-backgroung-big.jpg);
   background-size: cover;
   background-attachment: fixed;
-  background-position-y: 100px;
+  background-repeat: no-repeat;
   width: 1353px;
   height: auto;
   margin: 50px 0 50px;
@@ -150,7 +150,6 @@ body {
 .todo-task:hover {
   width: 375px;
   max-height: 100px;
-  transition: 0.5s ease-in-out;
 }
 
 .todo-task p {
@@ -162,6 +161,9 @@ body {
 .tasks-done {
   margin-top: 30px;
   margin-bottom: 100px;
+}
+.todo-task_completed {
+  background-color: rgba(34, 69, 40, 0.5);
 }
 
 /* кнопки в task */
@@ -182,6 +184,10 @@ body {
   padding: 0;
   position: absolute;
   left: 10px;
+  cursor: pointer;
+}
+.remove-task:hover {
+  opacity: 0.8;
 }
 .time-play {
   background-image: url(/public/img/clock.svg);
@@ -193,6 +199,10 @@ body {
   margin-right: 5px;
   margin-top: 10px;
   padding: 0;
+  cursor: pointer;
+}
+.time-play:hover {
+  opacity: 0.8;
 }
 .time-stop {
   background-image: url(/public/img/pause.svg);
@@ -204,6 +214,10 @@ body {
   margin-right: 5px;
   margin-top: 10px;
   padding: 0;
+  cursor: pointer;
+}
+.time-stop:hover {
+  opacity: 0.8;
 }
 .task-done {
   background-image: url(/public/img/done.svg);
@@ -215,4 +229,8 @@ body {
   margin-right: 5px;
   margin-top: 10px;
   padding: 0;
+  cursor: pointer;
+}
+.task-done:hover {
+  opacity: 0.8;
 }

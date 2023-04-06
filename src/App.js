@@ -4,6 +4,8 @@ import Task from './components/Task/Task';
 function App() {
   const [inputText, setInputText] = React.useState('');
   const [tasks, setTasks] = React.useState([]);
+  const [completedTasks, setCompletedTasks] = React.useState([]);
+  const [complited, setComplited] = React.useState(false);
 
   const handleInputChange = (event) => {
     setInputText(event.target.value);
@@ -14,7 +16,14 @@ function App() {
       setInputText('');
     }
   };
-
+  const handleTaskDone = (text) => {
+    const taskIndex = tasks.findIndex((task) => task.text === text);
+    const completedTask = tasks[taskIndex];
+    setCompletedTasks([...completedTasks, completedTask]);
+    setTasks(tasks.filter((task) => task.text !== text));
+    setComplited(true);
+  };
+  console.log(completedTasks);
   return (
     <div className="App">
       <div className="wrapper">
@@ -46,21 +55,18 @@ function App() {
             />
             <div className="todo-tasks">
               {tasks.map((task, index) => (
-                <Task key={index} text={task.text} />
+                <Task
+                  key={index}
+                  text={task.text}
+                  handleTaskDone={handleTaskDone}
+                  complited={false}
+                />
               ))}
             </div>
             <div className="tasks-done">
-              <div className="todo-task todo-task_done">
-                <button className="remove-task" />
-                <p className="todo-text">
-                  Написать список задачь на всю оставшуюся жизнь и провереть переполняемость блока
-                </p>
-                <div className="todo-buttons">
-                  <button className="time-play" />
-                  <button className="time-stop" />
-                  <button className="task-done" />
-                </div>
-              </div>
+              {completedTasks.map((task, index) => (
+                <Task key={index} text={task.text} complited={true} />
+              ))}
             </div>
           </div>
           <img className="space-cow" alt="spaceCow" />
