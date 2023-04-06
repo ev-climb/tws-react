@@ -2,6 +2,19 @@ import React from 'react';
 import Task from './components/Task/Task';
 
 function App() {
+  const [inputText, setInputText] = React.useState('');
+  const [tasks, setTasks] = React.useState([]);
+
+  const handleInputChange = (event) => {
+    setInputText(event.target.value);
+  };
+  const handleInputEnter = (event) => {
+    if (event.key === 'Enter' && inputText) {
+      setTasks([...tasks, { text: inputText }]);
+      setInputText('');
+    }
+  };
+
   return (
     <div className="App">
       <div className="wrapper">
@@ -24,10 +37,17 @@ function App() {
             <div className="timer">
               <p className="timer-time">00:00:00</p>
             </div>
-            <input className="todo-input" placeholder=" чем займемся?" />
+            <input
+              className="todo-input"
+              placeholder=" чем займемся?"
+              value={inputText}
+              onChange={handleInputChange}
+              onKeyDown={handleInputEnter}
+            />
             <div className="todo-tasks">
-              <Task />
-              <Task />
+              {tasks.map((task, index) => (
+                <Task key={index} text={task.text} />
+              ))}
             </div>
             <div className="tasks-done">
               <div className="todo-task todo-task_done">

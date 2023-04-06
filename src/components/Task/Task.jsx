@@ -1,22 +1,33 @@
 import React from 'react';
 
-function Task() {
-  const [hoverTask, setHoverTask] = React.useState(false);
-  console.log(hoverTask);
+function Task({ text }) {
+  const [showButtons, setShowButtons] = React.useState(false);
+
+  function handleMouseOver() {
+    setTimeout(() => {
+      setShowButtons(true);
+    }, 200);
+  }
+
+  function handleMouseOut() {
+    setTimeout(() => {
+      setShowButtons(false);
+    }, 200);
+  }
+
   return (
-    <div
-      className="todo-task"
-      onMouseOver={() => setHoverTask(true)}
-      onMouseOut={() => setHoverTask(false)}
-    >
-      {hoverTask && <button className="remove-task" />}
-      <p className="todo-text">Пройти урок по реакту</p>
-      <div className="todo-buttons">
-        <button className="time-play" />
-        <button className="time-stop" />
-        <button className="task-done" />
-      </div>
+    <div className="todo-task" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      {showButtons && (
+        <div className="todo-buttons">
+          <button className="time-play" />
+          <button className="time-stop" />
+          <button className="task-done" />
+        </div>
+      )}
+      <p className="todo-text">{text}</p>
+      {showButtons && <button className="remove-task" />}
     </div>
   );
 }
+
 export default Task;
