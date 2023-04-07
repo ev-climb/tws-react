@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Task({ text, handleTaskDone, complited }) {
+function Task({ text, handleTaskDone, complited, removeTask }) {
   const [showButtons, setShowButtons] = React.useState(false);
   const [timePlay, setTimePlay] = React.useState(false);
 
@@ -22,7 +22,6 @@ function Task({ text, handleTaskDone, complited }) {
   function handleTimeStop() {
     setTimePlay(false);
   }
-  console.log(complited);
 
   return (
     <div
@@ -38,7 +37,7 @@ function Task({ text, handleTaskDone, complited }) {
         </div>
       )}
       <p className="todo-text">{text}</p>
-      {showButtons && <button className="remove-task" />}
+      {showButtons && <button className="remove-task" onClick={() => removeTask(text)} />}
     </div>
   );
 }
