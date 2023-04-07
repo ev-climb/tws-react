@@ -173,9 +173,12 @@ body {
 /* кнопки в task */
 .todo-buttons {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   right: 10px;
 }
+
 .remove-task {
   background-image: url(/public/img/remove.svg);
   background-size: cover;
@@ -237,4 +240,10 @@ body {
 }
 .task-done:hover {
   opacity: 0.8;
+}
+.task-timer {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  margin-right: 4px;
 }
