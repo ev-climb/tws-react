@@ -15,9 +15,10 @@ function Todo() {
       setInputText('');
     }
   };
-  const handleTaskDone = (text, time) => {
+  const handleTaskDone = (text, time, setTime) => {
     setCompletedTasks([...completedTasks, { text: text, time: time }]);
     setTasks(tasks.filter((task) => task.text !== text));
+    setTime(0);
     console.log(completedTasks);
   };
   const removeTask = (text) => {
