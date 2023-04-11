@@ -1,28 +1,30 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Timer({ timePlay }) {
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-  const intervalRef = useRef(null);
+function Timer({ timePlay, time, setTime }) {
+  useEffect(() => {
+    let interval;
+    if (timePlay) {
+      interval = setInterval(() => {
+        setTime((seconds) => seconds + 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [timePlay, setTime]);
 
-  const startTimer = () => {
-    setIsActive(true);
-    intervalRef.current = setInterval(() => {
-      setSeconds((seconds) => seconds + 1);
-    }, 1000);
+  const formatTime = (time) => {
+    const hours = Math.floor(time / 3600)
+      .toString()
+      .padStart(2, '0');
+    const minutes = Math.floor((time % 3600) / 60)
+      .toString()
+      .padStart(2, '0');
+    const seconds = (time % 60).toString().padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
   };
-
-  const stopTimer = () => {
-    clearInterval(intervalRef.current);
-    setIsActive(false);
-  };
-  React.useEffect(() => {
-    timePlay ? startTimer() : stopTimer();
-  }, [timePlay]);
 
   return (
     <div>
-      <h1 className="task-timer">{new Date(seconds * 1000).toISOString().substr(11, 8)}</h1>
+      <h1 className="task-timer">{formatTime(time)}</h1>
     </div>
   );
 }

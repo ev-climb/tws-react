@@ -11,15 +11,14 @@ function Todo() {
   };
   const handleInputEnter = (event) => {
     if (event.key === 'Enter' && inputText) {
-      setTasks([...tasks, { text: inputText }]);
+      setTasks([...tasks, { text: inputText, time: 0 }]);
       setInputText('');
     }
   };
-  const handleTaskDone = (text) => {
-    const taskIndex = tasks.findIndex((task) => task.text === text);
-    const completedTask = tasks[taskIndex];
-    setCompletedTasks([...completedTasks, completedTask]);
+  const handleTaskDone = (text, time) => {
+    setCompletedTasks([...completedTasks, { text: text, time: time }]);
     setTasks(tasks.filter((task) => task.text !== text));
+    console.log(completedTasks);
   };
   const removeTask = (text) => {
     setTasks(tasks.filter((task) => task.text !== text));
@@ -51,7 +50,13 @@ function Todo() {
       </div>
       <div className="tasks-done">
         {completedTasks.map((task, index) => (
-          <Task key={index} text={task.text} complited={true} removeTask={removeTask} />
+          <Task
+            key={index}
+            text={task.text}
+            complited={true}
+            removeTask={removeTask}
+            taskTime={Number(task.time)}
+          />
         ))}
       </div>
     </div>
