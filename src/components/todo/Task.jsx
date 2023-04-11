@@ -1,18 +1,25 @@
 import React from 'react';
 
-function Task({ text, handleTaskDone, complited, removeTask, taskTime }) {
+function Task({ text, handleTaskDone, complited, removeTask, taskTime, setMainTime }) {
   const [showButtons, setShowButtons] = React.useState(false);
   const [timePlay, setTimePlay] = React.useState(false);
   const [time, setTime] = React.useState(0);
-  console.log(taskTime);
+
   React.useEffect(() => {
     let interval;
+    let mainInterval;
     if (timePlay) {
       interval = setInterval(() => {
         setTime((seconds) => seconds + 1);
       }, 1000);
+      mainInterval = setInterval(() => {
+        setMainTime((seconds) => seconds + 1);
+      }, 1000);
     }
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearInterval(mainInterval);
+    };
   }, [timePlay, setTime]);
 
   const formatTime = (time) => {
