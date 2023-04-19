@@ -89,10 +89,22 @@ function Todo() {
       <div className="timer" onMouseOver={handleMouseOverTimer} onMouseOut={handleMouseOutTimer}>
         {
           <>
-            <div className="timer__remove-all">
+            <div
+              className="timer__remove-all"
+              onClick={() => {
+                setTasks([]);
+                setCompletedTasks([]);
+                setMainTime(0);
+              }}
+            >
               <p>Очистить всё</p>
             </div>
-            <div className="timer__remove-timer">
+            <div
+              className="timer__remove-timer"
+              onClick={() => {
+                setMainTime(0);
+              }}
+            >
               <p>Очистить таймер</p>
             </div>
           </>
