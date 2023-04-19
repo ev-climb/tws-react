@@ -74,7 +74,10 @@ function Task({
             <div className="todo-buttons">
               {!timePlay && <button className="time-play" onClick={handleTimePlay} />}
               {timePlay && <button className="time-stop" onClick={handleTimeStop} />}
-              <button className="task-done" onClick={() => handleTaskDone(text, taskTime, date)} />
+              <button
+                className="task-done"
+                onClick={() => handleTaskDone(text, taskTime ? taskTime : (taskTime = 0), date)}
+              />
             </div>
           )}
         </div>

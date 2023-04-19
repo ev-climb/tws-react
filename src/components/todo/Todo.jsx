@@ -23,11 +23,25 @@ function Todo() {
     if (savedTasks) {
       setTasks(JSON.parse(savedTasks));
     }
+    const savedCompletedTasks = localStorage.getItem('myCompletedTasks');
+    if (savedCompletedTasks) {
+      setCompletedTasks(JSON.parse(savedCompletedTasks));
+      console.log(completedTasks);
+    }
+    const savedMainTime = localStorage.getItem('myMainTime');
+    if (savedMainTime) {
+      setMainTime(JSON.parse(savedMainTime));
+    }
   }, []);
   React.useEffect(() => {
     localStorage.setItem('myTasks', JSON.stringify(tasks));
-    console.log(tasks);
   }, [tasks]);
+  React.useEffect(() => {
+    localStorage.setItem('myCompletedTasks', JSON.stringify(completedTasks));
+  }, [completedTasks]);
+  React.useEffect(() => {
+    localStorage.setItem('myMainTime', JSON.stringify(mainTime));
+  }, [mainTime]);
 
   const handleInputChange = (event) => {
     setInputText(event.target.value);
@@ -71,32 +85,34 @@ function Todo() {
         onKeyDown={handleInputEnter}
       />
       <div className="todo-tasks">
-        {tasks.map((task) => (
-          <Task
-            key={task.date}
-            date={task.date}
-            text={task.text}
-            handleTaskDone={handleTaskDone}
-            removeTask={removeTask}
-            complited={false}
-            setMainTime={setMainTime}
-            handleTimeUpdate={handleTimeUpdate}
-            taskTime={Number(task.time)}
-          />
-        ))}
+        {tasks &&
+          tasks.map((task) => (
+            <Task
+              key={task.date}
+              date={task.date}
+              text={task.text}
+              handleTaskDone={handleTaskDone}
+              removeTask={removeTask}
+              complited={false}
+              setMainTime={setMainTime}
+              handleTimeUpdate={handleTimeUpdate}
+              taskTime={Number(task.time)}
+            />
+          ))}
       </div>
       <div className="tasks-done">
-        {completedTasks.map((task) => (
-          <Task
-            key={task.date}
-            date={task.date}
-            text={task.text}
-            complited={true}
-            removeTask={removeTask}
-            taskTime={Number(task.time)}
-            handleTimeUpdate={handleTimeUpdate}
-          />
-        ))}
+        {completedTasks &&
+          completedTasks.map((task) => (
+            <Task
+              key={task.date}
+              date={task.date}
+              text={task.text}
+              complited={true}
+              removeTask={removeTask}
+              taskTime={Number(task.time)}
+              handleTimeUpdate={handleTimeUpdate}
+            />
+          ))}
       </div>
     </div>
   );
