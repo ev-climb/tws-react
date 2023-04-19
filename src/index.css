@@ -87,11 +87,52 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+.timer p {
+  margin: 0;
+}
+.timer:hover .timer__remove-timer {
+  transform: translateY(-120%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timer:hover .timer__remove-all {
+  transform: translateY(-240%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+}
+.timer:hover .timer__remove-all:hover,
+.timer:hover .timer__remove-timer:hover {
+  background-color: rgba(57, 55, 55, 0.5);
+  color: rgba(255, 255, 255, 1);
 }
 .timer-time {
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 49px;
+}
+.timer__remove-timer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0);
+  top: 0;
+  padding: 0 7px;
+  border-radius: 7px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+.timer__remove-all {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0);
+  padding: 0 7px;
+  top: 0;
+  left: auto;
+  border-radius: 7px;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 /* инпут */

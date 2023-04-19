@@ -6,6 +6,7 @@ function Todo() {
   const [tasks, setTasks] = React.useState([]);
   const [completedTasks, setCompletedTasks] = React.useState([]);
   const [mainTime, setMainTime] = React.useState(0);
+  const [showButtonsTimer, setShowButtonsTimer] = React.useState(false);
 
   const formatMainTime = (mainTime) => {
     const hours = Math.floor(mainTime / 3600)
@@ -72,9 +73,30 @@ function Todo() {
     setCompletedTasks(completedTasks.filter((task) => task.date !== date));
   };
 
+  function handleMouseOverTimer() {
+    setTimeout(() => {
+      setShowButtonsTimer(true);
+    }, 200);
+  }
+  function handleMouseOutTimer() {
+    setTimeout(() => {
+      setShowButtonsTimer(false);
+    }, 200);
+  }
+
   return (
     <div className="todo-container">
-      <div className="timer">
+      <div className="timer" onMouseOver={handleMouseOverTimer} onMouseOut={handleMouseOutTimer}>
+        {
+          <>
+            <div className="timer__remove-all">
+              <p>Очистить всё</p>
+            </div>
+            <div className="timer__remove-timer">
+              <p>Очистить таймер</p>
+            </div>
+          </>
+        }
         <p className="timer-time">{formatMainTime(mainTime)}</p>
       </div>
       <input
