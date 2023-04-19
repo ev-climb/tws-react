@@ -1,6 +1,15 @@
 import React from 'react';
 
-function Task({ text, handleTaskDone, complited, removeTask, taskTime, setMainTime }) {
+function Task({
+  date,
+  text,
+  handleTaskDone,
+  complited,
+  removeTask,
+  taskTime,
+  setMainTime,
+  handleTimeUpdate,
+}) {
   const [showButtons, setShowButtons] = React.useState(false);
   const [timePlay, setTimePlay] = React.useState(false);
   const [time, setTime] = React.useState(0);
@@ -20,7 +29,7 @@ function Task({ text, handleTaskDone, complited, removeTask, taskTime, setMainTi
       clearInterval(interval);
       clearInterval(mainInterval);
     };
-  }, [timePlay, setTime]);
+  }, [timePlay, setMainTime]);
 
   const formatTime = (time) => {
     const hours = Math.floor(time / 3600)
@@ -50,6 +59,7 @@ function Task({ text, handleTaskDone, complited, removeTask, taskTime, setMainTi
   }
   function handleTimeStop() {
     setTimePlay(false);
+    handleTimeUpdate(date, time);
   }
 
   return (
@@ -64,14 +74,16 @@ function Task({ text, handleTaskDone, complited, removeTask, taskTime, setMainTi
             <div className="todo-buttons">
               {!timePlay && <button className="time-play" onClick={handleTimePlay} />}
               {timePlay && <button className="time-stop" onClick={handleTimeStop} />}
-              <button className="task-done" onClick={() => handleTaskDone(text, time, setTime)} />
+              <button className="task-done" onClick={() => handleTaskDone(text, time, date)} />
             </div>
           )}
         </div>
         <p className="todo-text">{text}</p>
-        {showButtons && <button className="remove-task" onClick={() => removeTask(text)} />}
+        {showButtons && <button className="remove-task" onClick={() => removeTask(date)} />}
       </div>
-      <h1 className="task-timer">{complited ? formatTime(taskTime) : formatTime(time)}</h1>
+      <h1 className="task-timer">
+        {taskTime || complited ? formatTime(taskTime) : formatTime(time)}
+      </h1>
     </div>
   );
 }

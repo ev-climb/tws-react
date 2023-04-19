@@ -26,6 +26,7 @@ function Todo() {
   }, []);
   React.useEffect(() => {
     localStorage.setItem('myTasks', JSON.stringify(tasks));
+    console.log(tasks);
   }, [tasks]);
 
   const handleInputChange = (event) => {
@@ -33,18 +34,29 @@ function Todo() {
   };
   const handleInputEnter = (event) => {
     if (event.key === 'Enter' && inputText) {
-      setTasks([...tasks, { text: inputText, time: 0 }]);
+      setTasks([...tasks, { text: inputText, date: Date.now() }]);
       setInputText('');
     }
   };
-  const handleTaskDone = (text, time, setTime) => {
-    setCompletedTasks([...completedTasks, { text: text, time: time }]);
-    setTasks(tasks.filter((task) => task.text !== text));
-    setTime(0);
+  const handleTaskDone = (text, time, date) => {
+    setCompletedTasks([...completedTasks, { text: text, time: time, date: date }]);
+    setTasks(tasks.filter((task) => task.date !== date));
+    localStorage.setItem('myTasks', JSON.stringify(tasks));
   };
-  const removeTask = (text) => {
-    setTasks(tasks.filter((task) => task.text !== text));
-    setCompletedTasks(completedTasks.filter((task) => task.text !== text));
+
+  const handleTimeUpdate = (date, newTime) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.date === date) {
+        return { ...task, time: newTime };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
+
+  const removeTask = (date) => {
+    setTasks(tasks.filter((task) => task.date !== date));
+    setCompletedTasks(completedTasks.filter((task) => task.date !== date));
   };
 
   return (
@@ -60,25 +72,30 @@ function Todo() {
         onKeyDown={handleInputEnter}
       />
       <div className="todo-tasks">
-        {tasks.map((task, index) => (
+        {tasks.map((task) => (
           <Task
-            key={index}
+            key={task.date}
+            date={task.date}
             text={task.text}
             handleTaskDone={handleTaskDone}
             removeTask={removeTask}
             complited={false}
             setMainTime={setMainTime}
+            handleTimeUpdate={handleTimeUpdate}
+            taskTime={Number(task.time)}
           />
         ))}
       </div>
       <div className="tasks-done">
-        {completedTasks.map((task, index) => (
+        {completedTasks.map((task) => (
           <Task
-            key={index}
+            key={task.date}
+            date={task.date}
             text={task.text}
             complited={true}
             removeTask={removeTask}
             taskTime={Number(task.time)}
+            handleTimeUpdate={handleTimeUpdate}
           />
         ))}
       </div>
