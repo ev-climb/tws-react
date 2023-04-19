@@ -41,7 +41,6 @@ function Todo() {
   const handleTaskDone = (text, time, date) => {
     setCompletedTasks([...completedTasks, { text: text, time: time, date: date }]);
     setTasks(tasks.filter((task) => task.date !== date));
-    localStorage.setItem('myTasks', JSON.stringify(tasks));
   };
 
   const handleTimeUpdate = (date, newTime) => {
