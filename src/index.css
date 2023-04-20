@@ -71,6 +71,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
+  position: relative;
 }
 .todo-container {
   width: 375px;
@@ -298,4 +299,30 @@ body {
 }
 .task-container:hover h1 {
   transform: translate(70px);
+}
+
+/* корова */
+
+.space-cow {
+  width: 220px;
+  height: fit-content;
+  animation: rotate 30s linear infinite, moving 30s linear;
+  margin-top: 100px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* музыка */
+.music-box iframe {
+  height: 350px;
+  opacity: 0.7;
+  margin-top: 90px;
+  margin-bottom: 30px;
 }

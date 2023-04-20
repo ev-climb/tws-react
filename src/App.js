@@ -21,8 +21,13 @@ function App() {
         </header>
         <div className="main">
           <Todo />
-          <img className="space-cow" alt="spaceCow" />
-          <div className="music-box"></div>
+          <img className="space-cow" alt="spaceCow" src="/img/spacecow.png" />
+          <div className="music-box">
+            <iframe
+              frameborder="0"
+              src="https://music.yandex.ru/iframe/#playlist/music-blog/2479"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
