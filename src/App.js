@@ -1,6 +1,8 @@
 import React from 'react';
 import Todo from './components/todo/Todo';
 
+import Quote from './components/Quote';
+
 function App() {
   return (
     <div className="App">
@@ -10,9 +12,7 @@ function App() {
             <img className="header__logo" src="/img/logo-tws.svg" alt="logo" />
             <div className="header__quote">
               <div className="header__text-fone">
-                <p className="header__quote-text">
-                  «Счастье не в великом количестве вещей, а в мере наших потребностей»
-                </p>
+                <Quote />
                 <p className="header__quote-autor">Зенон Китийский</p>
               </div>
               <img className="header__marcus" src="/img/marcus.png" alt="marcus" />
