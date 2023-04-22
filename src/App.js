@@ -2,6 +2,7 @@ import React from 'react';
 import Todo from './components/todo/Todo';
 
 import Quote from './components/Quote';
+import Calendar from './components/Calendar';
 
 function App() {
   const [pushQuote, setPushQuote] = React.useState(false);
@@ -25,8 +26,9 @@ function App() {
           </div>
         </header>
         <div className="main">
-          <Todo />
           <img className="space-cow" alt="spaceCow" src="/img/spacecow.png" />
+          <Calendar />
+          <Todo />
           <div className="music-box">
             <iframe
               frameBorder="0"
