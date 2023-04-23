@@ -89,7 +89,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-left: 1px solid rgba(203, 108, 230, 0.17);
   height: fit-content;
   z-index: 1;
 }
@@ -451,6 +450,17 @@ body {
     padding-bottom: 8%;
     background-size: 300%;
   }
+  .main {
+    flex-direction: column;
+    align-items: center;
+  }
+  .todo-container {
+    margin-top: 70px;
+    height: fit-content;
+  }
+  .calendar {
+    margin-top: 70px;
+  }
 }
 @media screen and (max-width: 950px) {
   .header__container {
@@ -478,5 +488,8 @@ body {
   .header__logo {
     width: 100px;
     height: fit-content;
+  }
+  .calendar {
+    width: 350px;
   }
 }
