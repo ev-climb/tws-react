@@ -11,7 +11,7 @@ https://ev-climb.github.io/tws-react/
 - css анимации
 - адаптивный дизайн
 
-![Screen](https://github.com/ev-climb/art/blob/master/screen.png)
+![Screen](https://github.com/ev-climb/tws-react/blob/master/screen.png)
 
 ## Stack:
 - ReactJS + хуки
