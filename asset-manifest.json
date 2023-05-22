@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/tws-react/static/css/main.c1b754cb.css",
+    "main.js": "/tws-react/static/js/main.2cbb85ae.js",
+    "static/media/space-backgroung-big.jpg": "/tws-react/static/media/space-backgroung-big.5f603f4a1f55248e81ff.jpg",
+    "static/media/pause.svg": "/tws-react/static/media/pause.2569f17b623420b804fa.svg",
+    "static/media/wave.svg": "/tws-react/static/media/wave.3ade31181ef9a563f85f.svg",
+    "static/media/done.svg": "/tws-react/static/media/done.e994056990ec319e9122.svg",
+    "static/media/clock.svg": "/tws-react/static/media/clock.230a31a539f5d4e4a505.svg",
+    "static/media/remove.svg": "/tws-react/static/media/remove.806d9f8393932284b484.svg",
+    "index.html": "/tws-react/index.html",
+    "main.c1b754cb.css.map": "/tws-react/static/css/main.c1b754cb.css.map",
+    "main.2cbb85ae.js.map": "/tws-react/static/js/main.2cbb85ae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c1b754cb.css",
+    "static/js/main.2cbb85ae.js"
+  ]
+}
