@@ -201,6 +201,9 @@ body {
   overflow: auto;
   position: relative;
 }
+.todo-task::-webkit-scrollbar {
+  display: none;
+}
 .todo-task:hover {
   width: 375px;
   max-height: 100px;
