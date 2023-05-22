@@ -75,6 +75,9 @@ body {
   max-height: 100px;
   overflow: auto;
 }
+.header__quote-text::-webkit-scrollbar {
+  display: none;
+}
 .header__quote-autor {
   margin: 10px 0 0;
 }
